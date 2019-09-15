@@ -4,6 +4,10 @@ Create docker container for wordpress, using h2o and php7.3, with lightweight an
 
 ## How to use
 
+### Change Config
+
+edit docker-compose.yml and rewrite WP_HOST and WP_SITEURL environment, to your hostname
+
 ### Build
 
 ```
