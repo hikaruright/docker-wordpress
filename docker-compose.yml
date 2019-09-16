@@ -16,10 +16,13 @@ services:
       - app
     links: 
       - app
+    restart: always
 
   app:
     container_name: wp-app
     image: wordpress:5.2.2-php7.3-fpm-alpine 
+    ports:
+      - "9900:9000"
     depends_on: 
       - db
     links: 
@@ -32,8 +35,11 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: dbuser
       WORDPRESS_DB_PASSWORD: dbpassword
+      WP_HOST: https://www.solxyz.app
+      WP_SITEURL: https://www.solxyz.app
     volumes: 
       - /var/www/html
+    restart: always
 
   db:
     image: mysql:5.7.19
@@ -49,3 +55,4 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: dbuser
       MYSQL_PASSWORD: dbpassword
+    restart: always
