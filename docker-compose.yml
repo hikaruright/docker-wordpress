@@ -8,6 +8,7 @@ services:
   web:
     container_name: wp-web
     build: ./web
+    # Add port forwarding configure if you needed.
     ports: 
       - "9180:8080"
     networks: 
